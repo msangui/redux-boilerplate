@@ -1,0 +1,4 @@
+export const WIKI_LOAD = 'WIKI_LOAD';
+export const WIKI_LOAD_SUCCESS = 'WIKI_LOAD_SUCCESS';
+export const WIKI_LOAD_FAIL = 'WIKI_LOAD_FAIL';
+export const COUNTER_INCREMENT = 'COUNTER_INCREMENT';
