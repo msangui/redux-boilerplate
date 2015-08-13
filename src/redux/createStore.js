@@ -5,7 +5,7 @@ import logMiddleware from './logMiddleware';
 import * as reducers from '../reducers/index';
 const reducer = combineReducers(reducers);
 
-export default function(data, client) {
+export default function(data) {
     const _promiseMiddleware = promiseMiddleware();
     const _logMiddleware = logMiddleware();
 

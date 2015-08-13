@@ -28,7 +28,7 @@ class Wiki extends Component {
       refreshClassName += ' fa-spin';
     }
     return (
-      <div className={styles.widgets + ' container'}>
+      <div className={styles.wiki + ' container'}>
         <h1>
           Wiki Extract
           <button className={styles.refreshBtn + ' btn btn-success'} onClick={:: this.onReload}><i className={refreshClassName}/> {' '} Reload Widgets</button>

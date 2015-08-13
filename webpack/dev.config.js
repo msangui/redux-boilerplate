@@ -15,7 +15,7 @@ module.exports = {
       'webpack-dev-server/client?http://' + host + ':' + port,
       'webpack/hot/only-dev-server',
       './src/client.js',
-      'bootstrap-sass!./src/config/bootstrap-sass.config.js'
+      'bootstrap-sass!./src/config/bootstrap/bootstrap-sass.config.dev.js'
     ]
   },
   output: {
@@ -29,7 +29,7 @@ module.exports = {
       { test: /\.(jpe?g|png|gif|svg|ttf|woff|woff2|eot)$/, loader: 'url', query: {limit: 10240} },
       { test: /\.js$/, exclude: /node_modules/, loaders: ['react-hot', 'babel?stage=0&optional=runtime&plugins=typecheck']},
       { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=2!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true') }
+      { test: /\.scss$/, exclude: /node_modues/, loader: 'style!css?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true' }
     ]
   },
   progress: true,
@@ -42,7 +42,6 @@ module.exports = {
   },
   plugins: [
     // hot reload
-    new ExtractTextPlugin('[name]-[chunkhash].css', {allChunks: true}),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/\.json$/),
     new webpack.NoErrorsPlugin(),

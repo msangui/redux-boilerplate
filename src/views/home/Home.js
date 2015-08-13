@@ -15,7 +15,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <div className={styles.masthead}>
+                <div className={styles.home}>
                     <div className="container">
                         <div className={styles.logo}>
                             <p>

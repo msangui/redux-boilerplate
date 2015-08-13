@@ -10,7 +10,6 @@ const styles = __CLIENT__ ? require('./App.scss') : requireServerCss(require.res
 
 export default
 class App extends Component {
-
   static contextTypes = {
     router: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired
@@ -29,7 +28,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className={styles.app}>
+      <div className={styles ? styles.app : ''}>
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container">
             <Link to="/" className="navbar-brand">
