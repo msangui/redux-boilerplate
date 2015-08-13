@@ -1,6 +1,8 @@
+@import '../../config/bootstrap/bootstrap-customizations';
+
 .app {
   background: white;
 }
 body {
-  //padding-top: $navbar-height + 25px;
+  padding-top: $navbar-height + 25px;
 }

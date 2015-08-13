@@ -1,6 +1,7 @@
 // Example file. Copy this to your project. Change then names of the referenced files or comment
 // them out. Convention is to name sass partials to start with an '_'
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var bootstrapModules = require('./bootstrap-modules');
 
 module.exports = {
   verbose: true, // Set to true to show diagnostic information
@@ -33,51 +34,7 @@ module.exports = {
   //   styleLoader: ExtractTextPlugin.extract('style-loader',
   // 'css-loader!sass?outputStyle=expanded'),
 
-  scripts: {},
-  styles: {
-    'mixins': true,
-
-    'normalize': true,
-    'print': true,
-    'glyphicons': true,
-
-    'scaffolding': true,
-    'type': true,
-    'code': true,
-    'grid': true,
-    'tables': true,
-    'forms': true,
-    'buttons': true,
-
-    'component-animations': true,
-    //'dropdowns': true,
-    //'button-groups': true,
-    //'input-groups': true,
-    //'navs': true,
-    //'navbar': true,
-    //'breadcrumbs': true,
-    //'pagination': true,
-    //'pager': true,
-    //'labels': true,
-    //'badges': true,
-    //'jumbotron': true,
-    //'thumbnails': true,
-    //'alerts': true,
-    //'progress-bars': true,
-    //'media': true,
-    //'list-group': true,
-    //'panels': true,
-    //'wells': true,
-    //'responsive-embed': true,
-    //'close': true,
-
-    'modals': true,
-    'tooltip': true,
-    'popovers': true,
-    'carousel': true,
-
-    'utilities': true,
-    'responsive-utilities': true
-  }
+  scripts: bootstrapModules.scripts,
+  styles: bootstrapModules.styles
 };
 
