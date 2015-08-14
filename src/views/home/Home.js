@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
+import { connect } from 'react-redux';
 import {requireServerCss, requireServerImage} from '../../utils/util';
+import Person from '../../components/person/Person';
 
 const styles = __CLIENT__ ? require('./Home.scss') : requireServerCss(require.resolve('./Home.scss'));
 
@@ -11,21 +13,42 @@ if (__CLIENT__) {
     logoImage = requireServerImage('../../../static/logo.jpg');
 }
 
-export default class Home extends Component {
+class Home extends Component {
+
     render() {
+        const { people } = this.props;
+
         return (
-            <div>
-                <div className={styles.home}>
-                    <div className="container">
-                        <div className={styles.logo}>
-                            <p>
-                                <img src={logoImage}/>
-                            </p>
-                        </div>
-                        <h1>React Redux Example</h1>
-                    </div>
-                </div>
+            <div className={styles.home}>
+                <header>
+                    <h1 class="h1">React Redux Example</h1>
+                </header>
+                <section className={styles.logo}>
+                    <img src={logoImage}/>
+                    <h1>Person List</h1>
+                    <ul>
+                        {people.map((person) => <li>
+                            <Person {...person} />
+                        </li>)}
+                    </ul>
+                </section>
             </div>
         );
+    }
+}
+
+
+@connect(state => ({
+    people: state.people.data
+}))
+export default
+class HomeContainer {
+    static propTypes = {
+        people: PropTypes.array
+    }
+
+    render () {
+        const { people } = this.props;
+        return <Home people={people} />;
     }
 }

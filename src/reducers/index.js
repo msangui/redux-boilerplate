@@ -1,5 +1,12 @@
 import {createFormReducer} from 'redux-form';
 
-export wiki from './wiki';
-export counter from './counter';
-export const form = createFormReducer('form', ['name', 'email', 'occupation']);
+import wiki from './wiki';
+import counter from './counter';
+import people from './people';
+const personForm = createFormReducer('personForm', ['name', 'email', 'occupation']);
+export {
+    wiki,
+    counter,
+    people,
+    personForm
+}

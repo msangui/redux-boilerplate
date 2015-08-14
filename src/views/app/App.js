@@ -28,7 +28,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className={styles ? styles.app : ''}>
+      <div className={styles.app + ' container'}>
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container">
             <Link to="/" className="navbar-brand">
@@ -37,7 +37,6 @@ class App extends Component {
             <ul className="nav navbar-nav">
               <li><Link to="/wiki">Wiki</Link></li>
               <li><Link to="/form">Form</Link></li>
-              <li><CounterButton/></li>
             </ul>
           </div>
         </nav>
