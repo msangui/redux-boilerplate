@@ -60,12 +60,7 @@ if (config.port) {
   app.listen(config.port, (err) => {
     if (err) {
       console.error(err);
-    } else {
-      console.info('==> ✅  Server is listening');
-      console.info('==> 🌎  %s running on port %s', config.app.name, config.port);
-      console.info('----------\n==> 💻  Open http://localhost:%s in a browser to view the app.', config.port);
-
-    }
+    } 
   });
 } else {
   console.error('==>     ERROR: No PORT environment variable has been specified');
