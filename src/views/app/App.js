@@ -1,10 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
 import {createTransitionHook} from '../../config/universalRouter';
 import {requireServerCss} from '../../utils/util';
-import CounterButton from '../../components/counterButton/CounterButton'
+import CounterButton from '../../components/counterButton/CounterButton';
 
 const styles = __CLIENT__ ? require('./App.scss') : requireServerCss(require.resolve('./App.scss'));
 
@@ -38,6 +36,7 @@ class App extends Component {
               <li><Link to="/wiki">Wiki</Link></li>
               <li><Link to="/form">Form</Link></li>
               <li><CounterButton/></li>
+              <li>Hello World!</li>
             </ul>
           </div>
         </nav>

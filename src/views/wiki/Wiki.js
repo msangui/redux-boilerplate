@@ -18,11 +18,11 @@ class Wiki extends Component {
   }
 
   onReload() {
-    return this.props.load('italy')
+    return this.props.load('italy');
   }
 
   render() {
-    const {wikis, error, loading} = this.props;
+    const {wikis, loading} = this.props;
     let refreshClassName = 'fa fa-refresh';
     if (loading) {
       refreshClassName += ' fa-spin';

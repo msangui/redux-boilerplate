@@ -6,26 +6,24 @@ const styles = __CLIENT__ ? require('./Home.scss') : requireServerCss(require.re
 // require the logo image both from client and server
 let logoImage = '';
 if (__CLIENT__) {
-    logoImage = require('../../../static/logo.jpg');
+  logoImage = require('../../../static/logo.jpg');
 } else {
-    logoImage = requireServerImage('../../../static/logo.jpg');
+  logoImage = requireServerImage('../../../static/logo.jpg');
 }
 
 export default class Home extends Component {
-    render() {
-        return (
-            <div>
-                <div className={styles.home}>
-                    <div className="container">
-                        <div className={styles.logo}>
-                            <p>
-                                <img src={logoImage}/>
-                            </p>
-                        </div>
-                        <h1>React Redux Example</h1>
-                    </div>
-                </div>
+  render() {
+    return (
+      <div>
+        <div className={styles.home}>
+          <div className="container">
+            <div className={styles.logo}>
+              <p><img src={logoImage}/></p>
             </div>
-        );
-    }
+            <h1>React Redux Example</h1>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }

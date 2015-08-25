@@ -15,7 +15,7 @@ export function requireServerCss(cssPath) {
   if (__CLIENT__) {
     throw new Error('server-side only css resolver called on client');
   }
-  console.log('dirname', __dirname, 'css', cssPath)
+  console.log('dirname', __dirname, 'css', cssPath);
   return readStats().css.modules[cssPath.slice(dirname.length)];
 }
 
@@ -36,7 +36,9 @@ export function requireServerImage(imagePath) {
   const image = images.find(img => regex.test(img.original));
 
   // Serve image.
-  if (image) return image.compiled;
+  if (image) {
+    return image.compiled;
+  }
 
   // Serve a not-found asset maybe?
   return '';
