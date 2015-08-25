@@ -24,7 +24,20 @@ module.exports = {
     chunkFilename: '[name]-[chunkhash].js',
     publicPath: 'http://' + host + ':' + port + '/dist/'
   },
+  eslint: {
+    configFile: '.eslintrc',
+    ignoreFile: '.eslintignore',
+    formatter: require('eslint-friendly-formatter'),
+    failOnError: true
+  },
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        loader: "eslint-loader",
+        exclude: /node_modules/,
+      },
+    ],
     loaders: [
       { test: /\.(jpe?g|png|gif|svg|ttf|woff|woff2|eot)$/, loader: 'url', query: {limit: 10240} },
       { test: /\.js$/, exclude: /node_modules/, loaders: ['react-hot', 'babel?stage=0&optional=runtime&plugins=typecheck']},
@@ -44,7 +57,7 @@ module.exports = {
     // hot reload
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/\.json$/),
-    new webpack.NoErrorsPlugin(),
+    // new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       __CLIENT__: true,
       __SERVER__: false,

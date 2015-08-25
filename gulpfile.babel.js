@@ -5,7 +5,6 @@ import browserSync from 'browser-sync';
 import runSequence from 'run-sequence';
 import webpackConfigDev from './webpack/dev.config';
 import webpackConfigProd from './webpack/prod.config';
-
 /**
  * Define isomorphic constants.
  */
@@ -28,6 +27,8 @@ gulp.task('webpack-dev', getTask('webpack', config));
 
 gulp.task('server', getTask('server'));
 
-gulp.task('default', function() {
-	runSequence('browser-sync-init', 'webpack-dev', 'server');
-});
+gulp.task('dev', () => {
+    runSequence('webpack-dev', 'browser-sync-init', 'server');
+})
+
+gulp.task('default', ['dev']);

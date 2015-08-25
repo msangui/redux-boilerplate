@@ -1,1 +1,3 @@
-webpack/*
+webpack/
+src/config/bootstrap
+src/redux/promiseMiddleware.js
