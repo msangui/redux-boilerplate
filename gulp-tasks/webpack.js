@@ -5,7 +5,6 @@ const host = process.env.HOST || 'localhost';
 const port = parseInt(process.env.PORT) + 1 || 3001;
 
 export default (gulp, plugins, config) => {
-	
 	return () => {
 		let serverOptions = {
 	    	contentBase: 'http://' + host + ':' + port,
@@ -26,4 +25,4 @@ export default (gulp, plugins, config) => {
 	  		console.info('==> 🚧  Webpack development server listening on %s:%s', host, port);
 		});
 	}
-}
+};

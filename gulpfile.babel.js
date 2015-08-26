@@ -15,7 +15,6 @@ global.__DEVELOPMENT__ = process.env.NODE_ENV !== 'production';
 
 const plugins = gulpLoadPlugins();
 const tasks = requireDir('./gulp-tasks');
-const config = __DEVELOPMENT__ ? webpackConfigDev : webpackConfigProd;
 
 function getTask(task, ...adHocParameters) {
     return require('./gulp-tasks/' + task)(gulp, plugins, ...adHocParameters);
@@ -23,12 +22,16 @@ function getTask(task, ...adHocParameters) {
 
 gulp.task('browser-sync-init', getTask('browserSync', browserSync));  
 
-gulp.task('webpack-dev', getTask('webpack', config));
+gulp.task('webpack-dev', getTask('webpack', webpackConfigDev));
+
+gulp.task('webpack-build', getTask('webpackProd', webpackConfigProd));
 
 gulp.task('server', getTask('server'));
 
 gulp.task('dev', () => {
     runSequence('webpack-dev', 'browser-sync-init', 'server');
-})
+});
+
+gulp.task('build', ['webpack-build']);
 
 gulp.task('default', ['dev']);

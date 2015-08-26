@@ -14,7 +14,10 @@ module.exports = {
   devtool: 'source-map',
   context: path.resolve(__dirname, '..'),
   entry: {
-    'main': ['./src/client.js', "bootstrap-sass!./src/config/bootstrap/bootstrap-sass.config.prod.js"]
+    'main': [
+      './src/client.js', 
+      'bootstrap-sass!./src/config/bootstrap/bootstrap-sass.config.prod.js'
+    ]
   },
   output: {
     path: assetsPath,
